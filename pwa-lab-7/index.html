@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Authentication</title>
+        <link rel="manifest" href="manifest.json">
+        <script>
+            function check(){
+                var username=document.getElementById("username").value;
+                var password=document.getElementById("password").value;
+                if(username==="rajesh" && password==="rajesh"){
+                    return window.location.href="next.html"
+                }
+                if(username==="rajesh123" && password==="12345"){
+                    return window.location.href="successful.html"
+            
+                }
+                else{
+                    return window.location.href="unsuccessful.html"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>User Authentification</h1>
+        <label>Username</label> <input type="text" id="username"><br>
+        <label>Password</label> <input type="password" id="password"><br>
+        <button type="button" onclick="check()">Submit</button>
+        <script>
+            if('serviceWorker' in navigator){
+                navigator.serviceWorker.register('serviceWorker.js')
+                .then(registeration=>{
+                    console.log("Registered successfully");
+                })
+                .catch(err=>{
+                    console.log("Registration failed"+err);
+                })
+            }
+        </script>
+    </body>
+</html>
